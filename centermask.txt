@@ -1,0 +1,17 @@
+
+TRAIN
+
+python train_net.py --config-file "configs/centermask/centermask_lite_V_19_eSE_FPN_ms_4x.yaml"
+
+
+EVAL
+
+python train_net.py --config-file "configs/centermask/centermask_V_39_eSE_FPN_ms_3x.yaml" --num-gpus 1 --eval-only MODEL.WEIGHTS centermask2-V-39-eSE-FPN-ms-3x.pth
+
+
+DEMO
+
+python demo.py --config-file ../configs/COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x.yaml \
+  --input ../image_folder/
+  [--other-options]  output 被设置为默认
+  --opts MODEL.WEIGHTS detectron2://COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_3x/137849600/model_final_f10217.pkl
